@@ -1,9 +1,6 @@
 package com.example.crudexam.web.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -12,5 +9,4 @@ import lombok.Setter;
 public class BoardDto {
     private String title;
     private String content;
-
 }

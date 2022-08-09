@@ -6,13 +6,14 @@
     <title>Title</title>
 </head>
 <body>
-<ul>
 
-    <li>Title : <input type="text" th:value="${board.getTitle()}"disabled/></li>
-    <br>
-    <li>Content : <input type="text" th:value="${board.getContent()}" disabled></li>
-    <br>
-</ul>
-    <a th:href = "@{/board/editPage/{id}(id=${board.getId()})}">수정 하기</a>
+TITLE<br>
+<input type="text" th:value="${board.getTitle()}" disabled>
+<br><br>
+CONTENT<br>
+<input type="text" th:value="${board.getContent()}" disabled>
+<br>
+<br>
+<a th:href="@{/board/editPage/{id}(id=${board.getId()})}">수정 하기 </a>
 </body>
 </html>
