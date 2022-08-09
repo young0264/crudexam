@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a>입력란</a>
+<form th:action method ="post" th:object="${boardDto}">
+    Title : <input th:field="*{title}" type="text" placeholder="title을 입력하세요">
+    <br>
+    Content : <textarea th:field="*{content}" placeholder="content를 입력하세요"></textarea>
+    <br>
+    <button type="submit">등록 버튼</button>
+</form>
+</body>
+</html>

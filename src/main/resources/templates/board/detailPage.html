@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+
+    <li>Title : <input type="text" th:value="${board.getTitle()}"disabled/></li>
+    <br>
+    <li>Content : <input type="text" th:value="${board.getContent()}" disabled></li>
+    <br>
+</ul>
+    <a th:href = "@{/board/editPage/{id}(id=${board.getId()})}">수정 하기</a>
+</body>
+</html>
