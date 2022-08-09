@@ -38,6 +38,9 @@ public class BoardController {
     @GetMapping("/board/detailPage/{id}")
     public String BoardDetailPage(@PathVariable Long id,
                                   Model model) {
+        if (!boardService.isExistBoard(id)) {
+            return "redirect:/board/newBoardPage";
+        }
         Board currentBoard = boardService.findBoardById(id);
         model.addAttribute("board", currentBoard);
         return "/board/detailPage"; //model넣은게 그 view로 return되야 반영이

@@ -8,6 +8,7 @@ import java.util.List;
 
 @Transactional(readOnly = true)
 public interface BoardRepository extends JpaRepository<Board,Long> {
-
+    List<Board> findAllByTitleContains(String keyword);
+    Board findByTitleContains(String keyword);
 
 }

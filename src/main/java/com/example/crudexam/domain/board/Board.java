@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Board {
 
     @Id

@@ -33,4 +33,14 @@ public class BoardService {
         boardById.setContent(boardDto.getContent());
         boardRepository.save(boardById);
     }
+
+    public boolean isExistBoard(Long id) {
+        Optional<Board> byId = boardRepository.findById(id);
+        if(byId.isEmpty()) {
+            return false;
+        }else{
+            return true;
+        }
+
+    }
 }
