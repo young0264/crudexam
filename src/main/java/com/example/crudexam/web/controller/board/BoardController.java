@@ -46,11 +46,12 @@ public class BoardController {
         return "/board/detail";
     }
 
-    @PostMapping("/board/detail/{id}")//new dto
-    public String updateForm(@PathVariable Long id, BoardFormDto boardFormDto) {
-        boardService.boardUpdate(id, boardFormDto);
-        return "/board/editBoard";
-    }
+//    @PostMapping("/board/detail/{id}")//new dto
+//    public String updateForm(@PathVariable Long id, Model model) {
+//
+////        boardService.boardUpdate(id, boardFormDto);
+//        return "/board/editBoard";
+//    }
 
     @GetMapping("/board/editBoard/{id}")
     public String showEditPage(@PathVariable Long id, Model model) {
@@ -58,7 +59,16 @@ public class BoardController {
         Board boardById = boardService.findBoardById(id);
         model.addAttribute("board", boardById);
         model.addAttribute(new BoardFormDto());
-
         return "board/editBoard";
+        //model.addAttribute("boardFormDto", new BoardFormDto());
+
+        //Board board = BoardService.findBoardbyId(id);
+        //model.addAttribute(board); 이또한 thymeleaf에서 board로 쓸수잇다
+    }
+
+    @PostMapping("/board/editBoard/{id}")//수정완료
+    public String updateEditPage(@PathVariable Long id,BoardFormDto boardFormDto) {
+        boardService.boardUpdate(id,boardFormDto);
+        return "redirect:/board/detail/{id}";
     }
 }
