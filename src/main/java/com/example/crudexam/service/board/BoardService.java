@@ -15,9 +15,12 @@ public class BoardService {
     private final BoardRepository boardRepository;
 
     public Board addBoard(BoardDto boardDto) {
-        Board newBoard = new Board();
-        newBoard.setTitle(boardDto.getTitle());
-        newBoard.setContent(boardDto.getContent());
+        Board newBoard = Board.builder()
+                .title(boardDto.getTitle())
+                .content(boardDto.getContent()).build();
+//
+//        newBoard.setTitle(boardDto.getTitle());
+//        newBoard.setContent(boardDto.getContent());
         Board savedboard = boardRepository.save(newBoard);
         return savedboard;
     }
@@ -28,9 +31,11 @@ public class BoardService {
     }
 
     public void updateBoard(Long id, BoardDto boardDto) {
-        Board byId = findById(id);
-        byId.setTitle(boardDto.getTitle());
-        byId.setContent(boardDto.getContent());
+        Board byId = findById(id).builder()
+                .title(boardDto.getTitle())
+                .content(boardDto.getContent()).build();
+//        byId.setTitle(boardDto.getTitle());
+//        byId.setContent(boardDto.getContent());
         boardRepository.save(byId);
     }
 
