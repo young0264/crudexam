@@ -10,13 +10,13 @@
 
 <form th:action method="post" th:object="${boardDto}">
 
-TITLE<br>
-<input type="text" th:field="*{title}" th:value="${board.getTitle()}">
-<br><br>
-CONTENT<br>
-<input type="text" th:field="*{content}" th:value="${board.getContent()}">
-<br>
-<button type="submit">수정 완료</button>
+    TITLE<br>
+    <input type="text" th:field="*{title}" th:value="${board.getTitle()}">
+    <br><br>
+    CONTENT<br>
+    <input type="text" th:field="*{content}" th:value="${board.getContent()}">
+    <br>
+    <button type="submit">수정 완료</button>
 
 </form>
 </body>

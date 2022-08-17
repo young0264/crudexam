@@ -14,15 +14,12 @@ import java.util.Optional;
 public class BoardService {
     private final BoardRepository boardRepository;
 
+    //게시글 등록
     public Board addBoard(BoardDto boardDto) {
-        Board newBoard = Board.builder()
+        Board board = Board.builder()
                 .title(boardDto.getTitle())
                 .content(boardDto.getContent()).build();
-//
-//        newBoard.setTitle(boardDto.getTitle());
-//        newBoard.setContent(boardDto.getContent());
-        Board savedboard = boardRepository.save(newBoard);
-        return savedboard;
+        return boardRepository.save(board);
     }
 
     public Board findById(Long boardId) {
@@ -30,22 +27,26 @@ public class BoardService {
         return byId.get();
     }
 
+    //수정
+
     public void updateBoard(Long id, BoardDto boardDto) {
-        Board byId = findById(id).builder()
+
+//        Board newBoard = findById(id);
+//        newBoard.setContent(boardDto.getContent());
+//        newBoard.setTitle(boardDto.getTitle());
+//
+        Board newBoard = Board.builder()
+                .id(id)
                 .title(boardDto.getTitle())
                 .content(boardDto.getContent()).build();
+
 //        byId.setTitle(boardDto.getTitle());
 //        byId.setContent(boardDto.getContent());
-        boardRepository.save(byId);
+        boardRepository.save(newBoard);
     }
 
 
-    public boolean isExistBoard(Long boardId) {
-        Optional<Board> byId = boardRepository.findById(boardId);
-        if (byId.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+    //삭제
+
+
 }
