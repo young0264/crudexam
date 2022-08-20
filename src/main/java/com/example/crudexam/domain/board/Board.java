@@ -2,6 +2,7 @@ package com.example.crudexam.domain.board;
 
 
 import lombok.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,4 +22,6 @@ public class Board {
     private Long id;
     private String title;
     private String content;
+
+//    @GetMapping("/")
 }

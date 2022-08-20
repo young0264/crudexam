@@ -6,6 +6,7 @@ import com.example.crudexam.domain.board.BoardRepository;
 import com.example.crudexam.web.dto.BoardDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 

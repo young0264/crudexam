@@ -13,6 +13,8 @@ TITLE<br>
 CONTENT<br>
 <input type="text" th:value="${board.getContent()}" disabled>
 <br>
+<button type="button" class="attach-comment btn btn-outline-dark mt-2">댓글등록</button>
+<button type="submit" th:method="post" >댓글 등록</button>
 <br>
 <a th:href="@{/board/editPage/{id}(id=${board.getId()})}">수정 하기 </a>
 </body>
